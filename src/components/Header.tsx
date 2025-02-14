@@ -4,6 +4,7 @@ import logo_black from "../../public/logo-black.webp"
 import logo_light from "../../public/logo-white.webp"
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 export const Header = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
@@ -31,7 +32,9 @@ export const Header = () => {
 
   return (
     <header className="p-4 shadow-md flex justify-between items-center bg-white dark:bg-gray-900">
-      <Image src={theme == 'light' ? logo_black : logo_light} alt="logo" height={40} />
+      <Link href="/">
+        <Image src={theme == 'light' ? logo_black : logo_light} alt="logo" height={40} />
+      </Link>
       <button
         onClick={toggleTheme}
         className="p-2 bg-gray-200 dark:bg-gray-700 dark:text-gray-200 rounded-md"
